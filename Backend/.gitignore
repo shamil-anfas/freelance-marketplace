@@ -7,10 +7,12 @@ __pycache__/
 *.pyo
 
 # Environment Variables
-.env
+.env*
 
 # SQLite
 db.sqlite3
+
+backup.sql
 
 # Logs
 logs/
@@ -25,3 +27,13 @@ staticfiles/
 # OS Files
 .DS_Store
 Thumbs.db
+
+# Test & Coverage
+.coverage
+.pytest_cache/
+
+# Linter Cache
+.ruff_cache/
+
+# Temp Files
+stop

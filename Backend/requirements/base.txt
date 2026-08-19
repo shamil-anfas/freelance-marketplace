@@ -1,0 +1,64 @@
+﻿# =============================================================
+# Base Requirements
+# Core packages required in ALL environments (dev + production)
+# =============================================================
+
+# ASGI / WSGI
+asgiref==3.11.1
+
+# Django Core
+Django==6.0.7
+django-environ==0.14.0
+django-filter==26.1
+django-redis==7.0.0
+
+# Django REST Framework
+djangorestframework==3.17.1
+djangorestframework_simplejwt==5.5.1
+drf-spectacular==0.30.0
+
+# Authentication
+PyJWT==2.13.0
+
+# Celery & Message Queue
+amqp==5.3.1
+billiard==4.2.4
+celery==5.6.3
+click==8.4.2
+click-didyoumean==0.3.1
+click-plugins==1.1.1.2
+click-repl==0.3.0
+colorama==0.4.6
+kombu==5.6.2
+vine==5.1.0
+
+# Celery CLI deps
+prompt_toolkit==3.0.53
+wcwidth==0.8.2
+
+# Database
+psycopg==3.3.4
+psycopg-binary==3.3.4
+sqlparse==0.5.5
+
+# Cache
+redis==8.1.0
+
+# Media / Files
+pillow==12.3.0
+
+# JSON Schema (used by drf-spectacular)
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+referencing==0.37.0
+rpds-py==2026.6.3
+uritemplate==4.2.0
+inflection==0.5.1
+
+# Utilities
+packaging==26.2
+python-dateutil==2.9.0.post0
+PyYAML==6.0.3
+six==1.17.0
+tzdata==2026.3
+tzlocal==5.4.4

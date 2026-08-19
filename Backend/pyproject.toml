@@ -1,0 +1,38 @@
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+exclude = '''
+/(
+    migrations
+    | venv
+    | .venv
+    | __pycache__
+)/
+'''
+
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+exclude = [
+    "migrations",
+    "venv",
+    ".venv",
+    "__pycache__",
+]
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # Pyflakes
+    "I",   # Import sorting
+]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+skip = [
+    "migrations",
+    "venv",
+    ".venv",
+]

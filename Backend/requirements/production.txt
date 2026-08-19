@@ -1,0 +1,9 @@
+﻿# =============================================================
+# Production Requirements
+# Installs base first, then adds production-only packages
+# =============================================================
+
+-r base.txt
+
+# WSGI Server
+gunicorn==26.0.0
