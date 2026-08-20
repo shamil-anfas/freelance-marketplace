@@ -33,7 +33,8 @@ INSTALLED_APPS = INSTALLED_APPS + ["corsheaders"]  # noqa: F405
 # Insert CorsMiddleware right before CommonMiddleware
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "corsheaders.middleware.CorsMiddleware",  # <-- must be before CommonMiddleware
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
