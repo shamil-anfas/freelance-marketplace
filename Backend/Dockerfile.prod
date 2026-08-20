@@ -4,6 +4,7 @@ WORKDIR /app
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV DJANGO_SETTINGS_MODULE=config.settings.production
 
 COPY requirements/ ./requirements/
 
@@ -12,6 +13,8 @@ RUN pip install --no-cache-dir -r requirements/production.txt
 COPY . .
 
 RUN mkdir -p /app/logs
+
+RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 
