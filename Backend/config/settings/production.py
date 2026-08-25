@@ -20,28 +20,14 @@ from config.settings.base import *  # noqa: F403
 DEBUG = False
 
 # e.g. ALLOWED_HOSTS=api.example.com,www.example.com
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")  # noqa: F405
+ALLOWED_HOSTS = env.list(  # noqa: F405
+    "ALLOWED_HOSTS", default=[".onrender.com", "localhost", "127.0.0.1"]
+)
 
 # ---------------------------------------------------------------------------
 # CORS (django-cors-headers)
-# Install: pip install django-cors-headers
 # Docs: https://github.com/adamchainz/django-cors-headers
 # ---------------------------------------------------------------------------
-
-INSTALLED_APPS = INSTALLED_APPS + ["corsheaders"]  # noqa: F405
-
-# Insert CorsMiddleware right before CommonMiddleware
-MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-]
 
 # No frontend yet — accept requests from any origin.
 # TODO: Replace with CORS_ALLOWED_ORIGINS once the frontend domain is known.
@@ -51,8 +37,10 @@ CORS_ALLOW_ALL_ORIGINS = True
 # CSRF
 # ---------------------------------------------------------------------------
 
-# TODO: Set this to your frontend + API domains once available.
-# CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS")
+CSRF_TRUSTED_ORIGINS = env.list(  # noqa: F405
+    "CSRF_TRUSTED_ORIGINS",
+    default=["https://*.onrender.com"],
+)
 
 # ---------------------------------------------------------------------------
 # Additional production hardening
