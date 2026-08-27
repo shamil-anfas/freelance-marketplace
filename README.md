@@ -4,6 +4,9 @@ A full-stack **Freelance Marketplace** platform that connects clients with skill
 
 ---
 
+🚀 Live Demo
+Live Application: https://freelancemarketplace-two.vercel.app
+
 ## 📁 Project Structure
 
 ```
