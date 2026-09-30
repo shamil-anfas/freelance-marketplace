@@ -6,6 +6,7 @@ import { fetchCurrentUser } from '../store/slices/authSlice'
 // Auth
 import Login from '../pages/auth/Login'
 import Register from '../pages/auth/Register'
+import Landing from '../pages/Landing'
 
 // Profile
 import ProfilePage from '../pages/profile/ProfilePage'
@@ -49,13 +50,13 @@ const RoleRoute = ({ children, role }) => {
   return children
 }
 
-/** Smart root redirect – sends user to their dashboard or login */
+/** Smart root – landing page for guests, dashboard for logged-in users */
 const RootRedirect = () => {
   const { isAuthenticated, role } = useSelector((state) => state.auth)
-  if (!isAuthenticated) return <Navigate to="/login" replace />
+  if (!isAuthenticated) return <Landing />
   if (role === 'CLIENT') return <Navigate to="/client/dashboard" replace />
   if (role === 'FREELANCER') return <Navigate to="/freelancer/dashboard" replace />
-  return <Navigate to="/login" replace />
+  return <Landing />
 }
 
 export default function AppRoutes() {
@@ -72,10 +73,10 @@ export default function AppRoutes() {
   // While validating an existing token, show nothing to avoid flash redirects
   if (loading && accessToken && !user) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+      <div className="min-h-screen bg-[#FDFBF7] flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-8 h-8 border-2 border-violet-500 border-t-transparent rounded-full animate-spin" />
-          <p className="text-slate-400 text-sm">Loading…</p>
+          <div className="w-8 h-8 border-2 border-teal-600 border-t-transparent rounded-full animate-spin" />
+          <p className="text-stone-500 text-sm">Loading…</p>
         </div>
       </div>
     )

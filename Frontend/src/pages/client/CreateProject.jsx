@@ -113,35 +113,35 @@ export default function CreateProject() {
         <div className="flex items-center gap-3 mb-6">
           <button
             onClick={() => navigate(-1)}
-            className="p-2 rounded-xl border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-xl border border-stone-200 text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
           </button>
           <div>
-            <h1 className="text-xl font-bold text-white">Post a New Project</h1>
-            <p className="text-slate-400 text-sm">Describe what you need done</p>
+            <h1 className="text-xl font-bold text-stone-900">Post a New Project</h1>
+            <p className="text-stone-500 text-sm">Describe what you need done</p>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Title */}
-          <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5 space-y-4">
-            <h2 className="text-sm font-semibold text-slate-300 flex items-center gap-2">
-              <FileText className="w-4 h-4 text-violet-400" /> Project Details
+          <div className="bg-white border border-stone-200 rounded-2xl p-5 space-y-4">
+            <h2 className="text-sm font-semibold text-stone-600 flex items-center gap-2">
+              <FileText className="w-4 h-4 text-teal-700" /> Project Details
             </h2>
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">Title *</label>
+              <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">Title *</label>
               <input
                 name="title"
                 value={form.title}
                 onChange={handleChange}
                 placeholder="e.g. Build a responsive e-commerce website"
                 required
-                className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition"
+                className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition"
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">
+              <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">
                 <AlignLeft className="w-3.5 h-3.5 inline mr-1" />Description *
               </label>
               <textarea
@@ -151,34 +151,34 @@ export default function CreateProject() {
                 placeholder="Describe your project requirements, goals, and any specific needs…"
                 required
                 rows={5}
-                className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition resize-none"
+                className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition resize-none"
               />
             </div>
           </div>
 
           {/* Category & Skills */}
-          <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5 space-y-4">
-            <h2 className="text-sm font-semibold text-slate-300 flex items-center gap-2">
-              <Tag className="w-4 h-4 text-violet-400" /> Category & Skills
+          <div className="bg-white border border-stone-200 rounded-2xl p-5 space-y-4">
+            <h2 className="text-sm font-semibold text-stone-600 flex items-center gap-2">
+              <Tag className="w-4 h-4 text-teal-700" /> Category & Skills
             </h2>
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">Category *</label>
+              <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">Category *</label>
               <select
                 name="category"
                 value={form.category}
                 onChange={handleChange}
                 required
-                className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition"
+                className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition"
               >
-                <option value="" className="bg-slate-900">Select a category…</option>
+                <option value="" className="bg-white">Select a category…</option>
                 {categories.map((cat) => (
-                  <option key={cat.id} value={cat.id} className="bg-slate-900">{cat.name}</option>
+                  <option key={cat.id} value={cat.id} className="bg-white">{cat.name}</option>
                 ))}
               </select>
             </div>
             <div className="space-y-2">
-              <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">
-                Required Skills * <span className="text-slate-600 normal-case font-normal">(select all that apply)</span>
+              <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">
+                Required Skills * <span className="text-stone-600 normal-case font-normal">(select all that apply)</span>
               </label>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => {
@@ -190,8 +190,8 @@ export default function CreateProject() {
                       onClick={() => toggleSkill(skill.id)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                         selected
-                          ? 'bg-violet-600/30 border border-violet-500/50 text-violet-300'
-                          : 'bg-slate-800/60 border border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-300'
+                          ? 'bg-teal-700/30 border border-teal-600/50 text-teal-700'
+                          : 'bg-stone-200/60 border border-stone-300 text-stone-500 hover:border-stone-500 hover:text-stone-600'
                       }`}
                     >
                       {selected && <span className="mr-1">✓</span>}
@@ -201,19 +201,19 @@ export default function CreateProject() {
                 })}
               </div>
               {form.skills.length > 0 && (
-                <p className="text-xs text-violet-400">{form.skills.length} skill(s) selected</p>
+                <p className="text-xs text-teal-700">{form.skills.length} skill(s) selected</p>
               )}
             </div>
           </div>
 
           {/* Budget & Deadline */}
-          <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5 space-y-4">
-            <h2 className="text-sm font-semibold text-slate-300 flex items-center gap-2">
-              <DollarSign className="w-4 h-4 text-violet-400" /> Budget & Timeline
+          <div className="bg-white border border-stone-200 rounded-2xl p-5 space-y-4">
+            <h2 className="text-sm font-semibold text-stone-600 flex items-center gap-2">
+              <DollarSign className="w-4 h-4 text-teal-700" /> Budget & Timeline
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">Min Budget (₹) *</label>
+                <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">Min Budget (₹) *</label>
                 <input
                   type="number"
                   name="budget_min"
@@ -222,11 +222,11 @@ export default function CreateProject() {
                   placeholder="5000"
                   required
                   min={0}
-                  className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition"
+                  className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition"
                 />
               </div>
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">Max Budget (₹) *</label>
+                <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">Max Budget (₹) *</label>
                 <input
                   type="number"
                   name="budget_max"
@@ -235,12 +235,12 @@ export default function CreateProject() {
                   placeholder="20000"
                   required
                   min={0}
-                  className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition"
+                  className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition"
                 />
               </div>
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-slate-400 uppercase tracking-wide flex items-center gap-1">
+              <label className="text-xs font-medium text-stone-500 uppercase tracking-wide flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5" /> Deadline *
               </label>
               <input
@@ -250,28 +250,28 @@ export default function CreateProject() {
                 onChange={handleChange}
                 min={minDate}
                 required
-                className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition"
+                className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition"
               />
             </div>
           </div>
 
           {/* Attachments */}
-          <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5 space-y-4">
-            <h2 className="text-sm font-semibold text-slate-300 flex items-center gap-2">
-              <Upload className="w-4 h-4 text-violet-400" /> Attachments
-              <span className="text-slate-600 font-normal text-xs">(optional, max 5 files, 10MB each)</span>
+          <div className="bg-white border border-stone-200 rounded-2xl p-5 space-y-4">
+            <h2 className="text-sm font-semibold text-stone-600 flex items-center gap-2">
+              <Upload className="w-4 h-4 text-teal-700" /> Attachments
+              <span className="text-stone-600 font-normal text-xs">(optional, max 5 files, 10MB each)</span>
             </h2>
 
             {attachments.length > 0 && (
               <div className="space-y-2">
                 {attachments.map((f, i) => (
-                  <div key={i} className="flex items-center justify-between bg-slate-800/60 border border-slate-700 rounded-lg px-3 py-2">
+                  <div key={i} className="flex items-center justify-between bg-stone-100 border border-stone-200 rounded-lg px-3 py-2">
                     <div className="flex items-center gap-2 min-w-0">
-                      <FileText className="w-4 h-4 text-slate-500 shrink-0" />
-                      <span className="text-sm text-slate-300 truncate">{f.name}</span>
-                      <span className="text-xs text-slate-600 shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
+                      <FileText className="w-4 h-4 text-stone-500 shrink-0" />
+                      <span className="text-sm text-stone-600 truncate">{f.name}</span>
+                      <span className="text-xs text-stone-600 shrink-0">({(f.size / 1024).toFixed(0)} KB)</span>
                     </div>
-                    <button type="button" onClick={() => removeAttachment(i)} className="ml-2 text-slate-500 hover:text-red-400 transition-colors shrink-0">
+                    <button type="button" onClick={() => removeAttachment(i)} className="ml-2 text-stone-500 hover:text-red-400 transition-colors shrink-0">
                       <X className="w-4 h-4" />
                     </button>
                   </div>
@@ -280,12 +280,12 @@ export default function CreateProject() {
             )}
 
             {attachments.length < 5 && (
-              <label className="flex flex-col items-center justify-center border-2 border-dashed border-slate-700 hover:border-violet-500/50 rounded-xl py-8 cursor-pointer transition-colors group">
-                <PlusCircle className="w-6 h-6 text-slate-600 group-hover:text-violet-400 transition-colors mb-2" />
-                <p className="text-sm text-slate-500 group-hover:text-slate-400 transition-colors">
+              <label className="flex flex-col items-center justify-center border-2 border-dashed border-stone-200 hover:border-teal-600/50 rounded-xl py-8 cursor-pointer transition-colors group">
+                <PlusCircle className="w-6 h-6 text-stone-600 group-hover:text-teal-700 transition-colors mb-2" />
+                <p className="text-sm text-stone-500 group-hover:text-stone-500 transition-colors">
                   Click to add files
                 </p>
-                <p className="text-xs text-slate-700 mt-1">PDF, DOC, DOCX, JPG, PNG</p>
+                <p className="text-xs text-stone-300 mt-1">PDF, DOC, DOCX, JPG, PNG</p>
                 <input type="file" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" onChange={handleFiles} className="sr-only" />
               </label>
             )}
@@ -295,7 +295,7 @@ export default function CreateProject() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-xl transition-colors shadow-lg shadow-violet-900/30"
+            className="w-full flex items-center justify-center gap-2 bg-teal-700 hover:bg-teal-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-xl transition-colors shadow-lg shadow-teal-900/30"
           >
             {submitting ? (
               <><Loader2 className="w-4 h-4 animate-spin" /> Posting project…</>

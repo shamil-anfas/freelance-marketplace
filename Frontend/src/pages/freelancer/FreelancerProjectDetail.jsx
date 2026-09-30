@@ -126,17 +126,17 @@ export default function FreelancerProjectDetail() {
     <Layout>
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center gap-3 mb-6">
-          <button onClick={() => navigate(-1)} className="p-2 rounded-xl border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+          <button onClick={() => navigate(-1)} className="p-2 rounded-xl border border-stone-200 text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-colors">
             <ArrowLeft className="w-4 h-4" />
           </button>
           <div className="flex items-center gap-2 flex-1 min-w-0">
-            <h1 className="text-xl font-bold text-white truncate">{project.title}</h1>
+            <h1 className="text-xl font-bold text-stone-900 truncate">{project.title}</h1>
             <Badge label={project.status_display || project.status} variant={project.status} />
           </div>
           <button
             onClick={toggleSave}
             disabled={savingToggle}
-            className={`p-2.5 rounded-xl border transition-all ${savedId ? 'border-pink-500/30 bg-pink-500/10 text-pink-400' : 'border-slate-700 text-slate-400 hover:text-pink-400 hover:border-pink-500/30 hover:bg-pink-500/10'}`}
+            className={`p-2.5 rounded-xl border transition-all ${savedId ? 'border-pink-500/30 bg-pink-500/10 text-pink-400' : 'border-stone-300 text-stone-500 hover:text-pink-400 hover:border-pink-500/30 hover:bg-pink-500/10'}`}
           >
             <Heart className={`w-4 h-4 ${savedId ? 'fill-current' : ''}`} />
           </button>
@@ -146,12 +146,12 @@ export default function FreelancerProjectDetail() {
           {/* Main */}
           <div className="lg:col-span-2 space-y-5">
             {/* Project info */}
-            <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-6">
-              <p className="text-slate-400 text-sm leading-relaxed mb-4">{project.description}</p>
+            <div className="bg-white border border-stone-200 rounded-2xl p-6">
+              <p className="text-stone-500 text-sm leading-relaxed mb-4">{project.description}</p>
               {project.skills?.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                   {project.skills.map((s) => (
-                    <span key={s.id} className="px-2.5 py-1 bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs rounded-lg">
+                    <span key={s.id} className="px-2.5 py-1 bg-teal-600/10 border border-teal-600/20 text-teal-700 text-xs rounded-lg">
                       {s.name}
                     </span>
                   ))}
@@ -161,15 +161,15 @@ export default function FreelancerProjectDetail() {
 
             {/* Attachments */}
             {project.attachments?.length > 0 && (
-              <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5">
-                <h3 className="text-sm font-semibold text-slate-300 mb-3 flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-violet-400" /> Attachments
+              <div className="bg-white border border-stone-200 rounded-2xl p-5">
+                <h3 className="text-sm font-semibold text-stone-600 mb-3 flex items-center gap-2">
+                  <FileText className="w-4 h-4 text-teal-700" /> Attachments
                 </h3>
                 <div className="space-y-2">
                   {project.attachments.map((att) => (
                     <a key={att.id} href={`http://localhost:8000${att.file}`} target="_blank" rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-2 bg-slate-800/60 hover:bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 hover:text-white transition-colors">
-                      <FileText className="w-3.5 h-3.5 text-slate-500" />
+                      className="flex items-center gap-2 px-3 py-2 bg-stone-100 hover:bg-stone-100 border border-stone-200 rounded-lg text-sm text-stone-600 hover:text-stone-900 transition-colors">
+                      <FileText className="w-3.5 h-3.5 text-stone-500" />
                       {att.file.split('/').pop()}
                     </a>
                   ))}
@@ -178,39 +178,39 @@ export default function FreelancerProjectDetail() {
             )}
 
             {/* Proposal form / Status */}
-            <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-6">
+            <div className="bg-white border border-stone-200 rounded-2xl p-6">
               {hasApplied ? (
                 <div className="text-center py-4">
                   <div className="w-12 h-12 bg-emerald-500/15 rounded-2xl flex items-center justify-center mx-auto mb-3">
                     <CheckCircle2 className="w-6 h-6 text-emerald-400" />
                   </div>
-                  <h3 className="text-base font-semibold text-white mb-1">Proposal Submitted</h3>
-                  <p className="text-sm text-slate-400 mb-4">You've already applied to this project.</p>
+                  <h3 className="text-base font-semibold text-stone-900 mb-1">Proposal Submitted</h3>
+                  <p className="text-sm text-stone-500 mb-4">You've already applied to this project.</p>
                   {existingProposal && (
-                    <div className="bg-slate-800/60 rounded-xl p-4 text-left space-y-2">
+                    <div className="bg-stone-100 rounded-xl p-4 text-left space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-slate-500">Status</span>
+                        <span className="text-xs text-stone-500">Status</span>
                         <Badge label={existingProposal.status} variant={existingProposal.status} />
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-slate-500">Bid Amount</span>
-                        <span className="text-sm text-white font-medium">₹{existingProposal.bid_amount}</span>
+                        <span className="text-xs text-stone-500">Bid Amount</span>
+                        <span className="text-sm text-stone-900 font-medium">₹{existingProposal.bid_amount}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-slate-500">Estimated Days</span>
-                        <span className="text-sm text-white">{existingProposal.estimated_days} days</span>
+                        <span className="text-xs text-stone-500">Estimated Days</span>
+                        <span className="text-sm text-stone-900">{existingProposal.estimated_days} days</span>
                       </div>
                     </div>
                   )}
                 </div>
               ) : project.status !== 'OPEN' ? (
                 <div className="text-center py-4">
-                  <p className="text-slate-400 text-sm">This project is no longer accepting proposals.</p>
+                  <p className="text-stone-500 text-sm">This project is no longer accepting proposals.</p>
                 </div>
               ) : (
                 <>
-                  <h3 className="text-base font-semibold text-white mb-4 flex items-center gap-2">
-                    <Send className="w-4 h-4 text-violet-400" /> Submit a Proposal
+                  <h3 className="text-base font-semibold text-stone-900 mb-4 flex items-center gap-2">
+                    <Send className="w-4 h-4 text-teal-700" /> Submit a Proposal
                   </h3>
 
                   {userProfile && (!userProfile.bio || !userProfile.phone_number || !userProfile.location) && (
@@ -233,7 +233,7 @@ export default function FreelancerProjectDetail() {
 
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="space-y-1.5">
-                      <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">Cover Letter *</label>
+                      <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">Cover Letter *</label>
                       <textarea
                         name="cover_letter"
                         value={form.cover_letter}
@@ -241,12 +241,12 @@ export default function FreelancerProjectDetail() {
                         placeholder="Introduce yourself and explain why you're the best fit for this project…"
                         required
                         rows={5}
-                        className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition resize-none"
+                        className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition resize-none"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-1.5">
-                        <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">Your Bid (₹) *</label>
+                        <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">Your Bid (₹) *</label>
                         <input
                           type="number"
                           name="bid_amount"
@@ -255,12 +255,12 @@ export default function FreelancerProjectDetail() {
                           placeholder="e.g. 15000"
                           required
                           min={0}
-                          className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition"
+                          className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition"
                         />
-                        <p className="text-xs text-slate-600">Client budget: ₹{project.budget_min}–₹{project.budget_max}</p>
+                        <p className="text-xs text-stone-600">Client budget: ₹{project.budget_min}–₹{project.budget_max}</p>
                       </div>
                       <div className="space-y-1.5">
-                        <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">Est. Days *</label>
+                        <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">Est. Days *</label>
                         <input
                           type="number"
                           name="estimated_days"
@@ -269,14 +269,14 @@ export default function FreelancerProjectDetail() {
                           placeholder="e.g. 14"
                           required
                           min={1}
-                          className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition"
+                          className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition"
                         />
                       </div>
                     </div>
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="w-full flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 disabled:opacity-60 text-white font-semibold py-3 rounded-xl transition-colors"
+                      className="w-full flex items-center justify-center gap-2 bg-teal-700 hover:bg-teal-600 disabled:opacity-60 text-white font-semibold py-3 rounded-xl transition-colors"
                     >
                       {submitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Submitting…</> : <><Send className="w-4 h-4" /> Submit Proposal</>}
                     </button>
@@ -288,8 +288,8 @@ export default function FreelancerProjectDetail() {
 
           {/* Sidebar */}
           <div className="space-y-4">
-            <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5 space-y-4">
-              <h3 className="text-sm font-semibold text-slate-300">Project Info</h3>
+            <div className="bg-white border border-stone-200 rounded-2xl p-5 space-y-4">
+              <h3 className="text-sm font-semibold text-stone-600">Project Info</h3>
               {[
                 { icon: User, label: 'Posted by', value: project.client_name },
                 { icon: Tag, label: 'Category', value: project.category?.name },
@@ -298,12 +298,12 @@ export default function FreelancerProjectDetail() {
                 { icon: Clock, label: 'Posted', value: new Date(project.created_at).toLocaleDateString('en-IN') },
               ].map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center shrink-0">
-                    <Icon className="w-4 h-4 text-slate-500" />
+                  <div className="w-8 h-8 bg-stone-100 rounded-lg flex items-center justify-center shrink-0">
+                    <Icon className="w-4 h-4 text-stone-500" />
                   </div>
                   <div>
-                    <p className="text-xs text-slate-600">{label}</p>
-                    <p className="text-sm text-white">{value || '—'}</p>
+                    <p className="text-xs text-stone-600">{label}</p>
+                    <p className="text-sm text-stone-900">{value || '—'}</p>
                   </div>
                 </div>
               ))}

@@ -83,16 +83,16 @@ export default function ClientProjectDetail() {
       <div className="max-w-4xl mx-auto">
         {/* Back */}
         <div className="flex items-center gap-3 mb-6">
-          <button onClick={() => navigate(-1)} className="p-2 rounded-xl border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+          <button onClick={() => navigate(-1)} className="p-2 rounded-xl border border-stone-200 text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-colors">
             <ArrowLeft className="w-4 h-4" />
           </button>
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-bold text-white">Project Details</h1>
+            <h1 className="text-xl font-bold text-stone-900">Project Details</h1>
             <Badge label={project.status_display || project.status} variant={project.status} />
           </div>
           <Link
             to={`/client/projects/${id}/edit`}
-            className="ml-auto flex items-center gap-2 px-3 py-2 border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-800 text-sm rounded-xl transition-colors"
+            className="ml-auto flex items-center gap-2 px-3 py-2 border border-stone-200 text-stone-500 hover:text-stone-900 hover:bg-stone-100 text-sm rounded-xl transition-colors"
           >
             <Edit3 className="w-3.5 h-3.5" /> Edit
           </Link>
@@ -102,13 +102,13 @@ export default function ClientProjectDetail() {
           {/* Main content */}
           <div className="lg:col-span-2 space-y-5">
             {/* Project info */}
-            <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-6">
-              <h2 className="text-xl font-bold text-white mb-3">{project.title}</h2>
-              <p className="text-slate-400 text-sm leading-relaxed mb-4">{project.description}</p>
+            <div className="bg-white border border-stone-200 rounded-2xl p-6">
+              <h2 className="text-xl font-bold text-stone-900 mb-3">{project.title}</h2>
+              <p className="text-stone-500 text-sm leading-relaxed mb-4">{project.description}</p>
               {project.skills?.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                   {project.skills.map((s) => (
-                    <span key={s.id} className="px-2.5 py-1 bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs rounded-lg">
+                    <span key={s.id} className="px-2.5 py-1 bg-teal-600/10 border border-teal-600/20 text-teal-700 text-xs rounded-lg">
                       {s.name}
                     </span>
                   ))}
@@ -118,9 +118,9 @@ export default function ClientProjectDetail() {
 
             {/* Attachments */}
             {project.attachments?.length > 0 && (
-              <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5">
-                <h3 className="text-sm font-semibold text-slate-300 mb-3 flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-violet-400" /> Attachments
+              <div className="bg-white border border-stone-200 rounded-2xl p-5">
+                <h3 className="text-sm font-semibold text-stone-600 mb-3 flex items-center gap-2">
+                  <FileText className="w-4 h-4 text-teal-700" /> Attachments
                 </h3>
                 <div className="space-y-2">
                   {project.attachments.map((att) => (
@@ -129,9 +129,9 @@ export default function ClientProjectDetail() {
                       href={`http://localhost:8000${att.file}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-3 py-2 bg-slate-800/60 hover:bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-300 hover:text-white transition-colors"
+                      className="flex items-center gap-2 px-3 py-2 bg-stone-100 hover:bg-stone-100 border border-stone-200 rounded-lg text-sm text-stone-600 hover:text-stone-900 transition-colors"
                     >
-                      <FileText className="w-3.5 h-3.5 text-slate-500" />
+                      <FileText className="w-3.5 h-3.5 text-stone-500" />
                       {att.file.split('/').pop()}
                     </a>
                   ))}
@@ -140,33 +140,33 @@ export default function ClientProjectDetail() {
             )}
 
             {/* Proposals section */}
-            <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl">
-              <div className="px-5 py-4 border-b border-slate-800">
-                <h3 className="text-sm font-semibold text-white">
-                  Proposals <span className="text-slate-500 font-normal">({proposals.length})</span>
+            <div className="bg-white border border-stone-200 rounded-2xl">
+              <div className="px-5 py-4 border-b border-stone-200">
+                <h3 className="text-sm font-semibold text-stone-900">
+                  Proposals <span className="text-stone-500 font-normal">({proposals.length})</span>
                 </h3>
               </div>
 
               {proposals.length === 0 ? (
                 <div className="py-10 text-center">
-                  <User className="w-8 h-8 text-slate-700 mx-auto mb-3" />
-                  <p className="text-slate-500 text-sm">No proposals received yet</p>
+                  <User className="w-8 h-8 text-stone-300 mx-auto mb-3" />
+                  <p className="text-stone-500 text-sm">No proposals received yet</p>
                 </div>
               ) : (
-                <div className="divide-y divide-slate-800">
+                <div className="divide-y divide-stone-200">
                   {[...pendingProposals, ...otherProposals].map((prop) => (
                     <div key={prop.id} className="p-5">
                       <div className="flex items-start justify-between gap-4 mb-3">
                         <div>
                           <div className="flex items-center gap-2 mb-1">
-                            <div className="w-7 h-7 rounded-full bg-violet-600/20 border border-violet-500/30 flex items-center justify-center">
-                              <User className="w-3.5 h-3.5 text-violet-400" />
+                            <div className="w-7 h-7 rounded-full bg-teal-700/20 border border-teal-600/30 flex items-center justify-center">
+                              <User className="w-3.5 h-3.5 text-teal-700" />
                             </div>
-                            <span className="text-sm font-medium text-white">
+                            <span className="text-sm font-medium text-stone-900">
                               {prop.freelancer_name || prop.freelancer?.first_name || 'Freelancer'}
                             </span>
                           </div>
-                          <div className="flex items-center gap-3 text-xs text-slate-500">
+                          <div className="flex items-center gap-3 text-xs text-stone-500">
                             <span>Bid: <span className="text-emerald-400 font-medium">₹{prop.bid_amount}</span></span>
                             <span>•</span>
                             <span>Est. {prop.estimated_days} days</span>
@@ -174,7 +174,7 @@ export default function ClientProjectDetail() {
                         </div>
                         <Badge label={prop.status} variant={prop.status} />
                       </div>
-                      <p className="text-sm text-slate-400 leading-relaxed mb-4 line-clamp-3">{prop.cover_letter}</p>
+                      <p className="text-sm text-stone-500 leading-relaxed mb-4 line-clamp-3">{prop.cover_letter}</p>
 
                       {prop.status === 'PENDING' && (
                         <div className="flex gap-2">
@@ -201,8 +201,8 @@ export default function ClientProjectDetail() {
 
           {/* Sidebar */}
           <div className="space-y-4">
-            <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5 space-y-4">
-              <h3 className="text-sm font-semibold text-slate-300">Project Info</h3>
+            <div className="bg-white border border-stone-200 rounded-2xl p-5 space-y-4">
+              <h3 className="text-sm font-semibold text-stone-600">Project Info</h3>
               {[
                 { icon: Tag, label: 'Category', value: project.category?.name },
                 { icon: DollarSign, label: 'Budget', value: `₹${project.budget_min} – ₹${project.budget_max}` },
@@ -210,29 +210,29 @@ export default function ClientProjectDetail() {
                 { icon: Clock, label: 'Posted', value: new Date(project.created_at).toLocaleDateString('en-IN') },
               ].map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center shrink-0">
-                    <Icon className="w-4 h-4 text-slate-500" />
+                  <div className="w-8 h-8 bg-stone-100 rounded-lg flex items-center justify-center shrink-0">
+                    <Icon className="w-4 h-4 text-stone-500" />
                   </div>
                   <div>
-                    <p className="text-xs text-slate-600">{label}</p>
-                    <p className="text-sm text-white">{value || '—'}</p>
+                    <p className="text-xs text-stone-600">{label}</p>
+                    <p className="text-sm text-stone-900">{value || '—'}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5">
-              <h3 className="text-sm font-semibold text-slate-300 mb-3">Proposal Stats</h3>
+            <div className="bg-white border border-stone-200 rounded-2xl p-5">
+              <h3 className="text-sm font-semibold text-stone-600 mb-3">Proposal Stats</h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { label: 'Total', value: proposals.length, color: 'text-white' },
+                  { label: 'Total', value: proposals.length, color: 'text-stone-900' },
                   { label: 'Pending', value: pendingProposals.length, color: 'text-amber-400' },
                   { label: 'Accepted', value: proposals.filter((p) => p.status === 'ACCEPTED').length, color: 'text-emerald-400' },
                   { label: 'Rejected', value: proposals.filter((p) => p.status === 'REJECTED').length, color: 'text-red-400' },
                 ].map(({ label, value, color }) => (
-                  <div key={label} className="bg-slate-800/60 rounded-xl p-3 text-center">
+                  <div key={label} className="bg-stone-100 rounded-xl p-3 text-center">
                     <p className={`text-xl font-bold ${color}`}>{value}</p>
-                    <p className="text-xs text-slate-500">{label}</p>
+                    <p className="text-xs text-stone-500">{label}</p>
                   </div>
                 ))}
               </div>

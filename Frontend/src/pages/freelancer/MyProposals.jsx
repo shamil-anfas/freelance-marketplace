@@ -80,8 +80,8 @@ export default function MyProposals() {
   return (
     <Layout>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white">My Proposals</h1>
-        <p className="text-slate-400 text-sm mt-1">{proposals.length} proposal(s) submitted</p>
+        <h1 className="text-2xl font-bold text-stone-900">My Proposals</h1>
+        <p className="text-stone-500 text-sm mt-1">{proposals.length} proposal(s) submitted</p>
       </div>
 
       {proposals.length === 0 ? (
@@ -90,7 +90,7 @@ export default function MyProposals() {
           title="No proposals yet"
           description="Browse open projects and submit your first proposal."
           action={
-            <Link to="/freelancer/browse" className="inline-flex items-center gap-2 px-4 py-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-medium rounded-xl transition-colors">
+            <Link to="/freelancer/browse" className="inline-flex items-center gap-2 px-4 py-2 bg-teal-700 hover:bg-teal-600 text-white text-sm font-medium rounded-xl transition-colors">
               Browse Projects
             </Link>
           }
@@ -98,41 +98,41 @@ export default function MyProposals() {
       ) : (
         <div className="space-y-4">
           {proposals.map((prop) => (
-            <div key={prop.id} className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5 hover:border-slate-600/50 transition-all">
+            <div key={prop.id} className="bg-white border border-stone-200 rounded-2xl p-5 hover:border-stone-300 transition-all">
               {editingId === prop.id ? (
                 /* Edit mode */
                 <div className="space-y-4">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-sm font-semibold text-white">Editing Proposal</h3>
-                    <button onClick={() => setEditingId(null)} className="text-slate-500 hover:text-slate-300 text-xs">Cancel</button>
+                    <h3 className="text-sm font-semibold text-stone-900">Editing Proposal</h3>
+                    <button onClick={() => setEditingId(null)} className="text-stone-500 hover:text-stone-600 text-xs">Cancel</button>
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-xs text-slate-400 uppercase tracking-wide">Cover Letter</label>
+                    <label className="text-xs text-stone-500 uppercase tracking-wide">Cover Letter</label>
                     <textarea
                       value={editForm.cover_letter}
                       onChange={(e) => setEditForm((f) => ({ ...f, cover_letter: e.target.value }))}
                       rows={4}
-                      className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 transition resize-none"
+                      className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-600/60 transition resize-none"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className="text-xs text-slate-400 uppercase tracking-wide">Bid Amount (₹)</label>
+                      <label className="text-xs text-stone-500 uppercase tracking-wide">Bid Amount (₹)</label>
                       <input type="number" value={editForm.bid_amount}
                         onChange={(e) => setEditForm((f) => ({ ...f, bid_amount: e.target.value }))}
-                        className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500/60 transition"
+                        className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-teal-600/60 transition"
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="text-xs text-slate-400 uppercase tracking-wide">Est. Days</label>
+                      <label className="text-xs text-stone-500 uppercase tracking-wide">Est. Days</label>
                       <input type="number" value={editForm.estimated_days}
                         onChange={(e) => setEditForm((f) => ({ ...f, estimated_days: e.target.value }))}
-                        className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500/60 transition"
+                        className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-teal-600/60 transition"
                       />
                     </div>
                   </div>
                   <button onClick={() => handleEditSave(prop.id)} disabled={saving}
-                    className="flex items-center gap-2 px-4 py-2 bg-violet-600 hover:bg-violet-500 disabled:opacity-60 text-white text-sm font-medium rounded-xl transition-colors">
+                    className="flex items-center gap-2 px-4 py-2 bg-teal-700 hover:bg-teal-600 disabled:opacity-60 text-white text-sm font-medium rounded-xl transition-colors">
                     {saving ? 'Saving…' : 'Save Changes'}
                   </button>
                 </div>
@@ -142,12 +142,12 @@ export default function MyProposals() {
                   <div className="flex items-start justify-between gap-4 mb-3">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <h3 className="text-base font-semibold text-white truncate">
+                        <h3 className="text-base font-semibold text-stone-900 truncate">
                           {prop.project?.title || 'Project'}
                         </h3>
                         <Badge label={prop.status} variant={prop.status} />
                       </div>
-                      <div className="flex items-center gap-3 text-xs text-slate-500">
+                      <div className="flex items-center gap-3 text-xs text-stone-500">
                         <span>Bid: <span className="text-emerald-400 font-medium">₹{prop.bid_amount}</span></span>
                         <span>•</span>
                         <span>{prop.estimated_days} days</span>
@@ -159,22 +159,22 @@ export default function MyProposals() {
                     {prop.status === 'PENDING' && (
                       <div className="flex items-center gap-2 shrink-0">
                         <button onClick={() => startEdit(prop)}
-                          className="p-2 rounded-lg border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                          className="p-2 rounded-lg border border-stone-200 text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-colors">
                           <Edit3 className="w-4 h-4" />
                         </button>
                         <button onClick={() => setWithdrawTarget(prop)}
-                          className="p-2 rounded-lg border border-slate-700 text-slate-400 hover:text-red-400 hover:border-red-500/30 hover:bg-red-500/10 transition-colors">
+                          className="p-2 rounded-lg border border-stone-200 text-stone-500 hover:text-red-400 hover:border-red-500/30 hover:bg-red-500/10 transition-colors">
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
                     )}
                   </div>
 
-                  <p className="text-sm text-slate-400 line-clamp-3 mb-3">{prop.cover_letter}</p>
+                  <p className="text-sm text-stone-500 line-clamp-3 mb-3">{prop.cover_letter}</p>
 
                   <Link
                     to={`/freelancer/projects/${prop.project?.id || prop.project}`}
-                    className="inline-flex items-center gap-1.5 text-xs text-violet-400 hover:text-violet-300 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs text-teal-700 hover:text-teal-700 transition-colors"
                   >
                     View Project <ArrowRight className="w-3.5 h-3.5" />
                   </Link>

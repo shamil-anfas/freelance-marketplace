@@ -12,10 +12,10 @@ import { getProfile, updateProfile } from '../../services/profileService'
 
 const Field = ({ label, name, value, onChange, type = 'text', placeholder, icon: Icon, textarea = false }) => (
   <div className="space-y-1.5">
-    <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">{label}</label>
+    <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">{label}</label>
     <div className="relative">
       {Icon && (
-        <Icon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+        <Icon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-500" />
       )}
       {textarea ? (
         <textarea
@@ -24,7 +24,7 @@ const Field = ({ label, name, value, onChange, type = 'text', placeholder, icon:
           onChange={onChange}
           placeholder={placeholder}
           rows={4}
-          className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition resize-none"
+          className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition resize-none"
         />
       ) : (
         <input
@@ -33,7 +33,7 @@ const Field = ({ label, name, value, onChange, type = 'text', placeholder, icon:
           value={value || ''}
           onChange={onChange}
           placeholder={placeholder}
-          className={`w-full bg-slate-800/60 border border-slate-700 rounded-xl ${Icon ? 'pl-10' : 'pl-4'} pr-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition`}
+          className={`w-full bg-stone-200/60 border border-stone-300 rounded-xl ${Icon ? 'pl-10' : 'pl-4'} pr-4 py-2.5 text-sm text-white placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition`}
         />
       )}
     </div>
@@ -121,13 +121,13 @@ export default function ProfilePage() {
         {/* Header */}
         <div className="flex items-start justify-between mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-white">My Profile</h1>
-            <p className="text-slate-400 text-sm mt-1">Manage your account information</p>
+            <h1 className="text-2xl font-bold text-stone-900">My Profile</h1>
+            <p className="text-stone-500 text-sm mt-1">Manage your account information</p>
           </div>
           {!editing ? (
             <button
               onClick={() => setEditing(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-medium rounded-xl transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-teal-700 hover:bg-teal-600 text-white text-sm font-medium rounded-xl transition-colors"
             >
               <Edit3 className="w-4 h-4" />
               Edit Profile
@@ -136,7 +136,7 @@ export default function ProfilePage() {
             <div className="flex gap-2">
               <button
                 onClick={handleCancel}
-                className="flex items-center gap-2 px-4 py-2 border border-slate-700 text-slate-300 hover:bg-slate-800 text-sm font-medium rounded-xl transition-colors"
+                className="flex items-center gap-2 px-4 py-2 border border-stone-200 text-stone-600 hover:bg-stone-100 text-sm font-medium rounded-xl transition-colors"
               >
                 <X className="w-4 h-4" />
                 Cancel
@@ -144,7 +144,7 @@ export default function ProfilePage() {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="flex items-center gap-2 px-4 py-2 bg-violet-600 hover:bg-violet-500 disabled:opacity-60 text-white text-sm font-medium rounded-xl transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-teal-700 hover:bg-teal-600 disabled:opacity-60 text-white text-sm font-medium rounded-xl transition-colors"
               >
                 {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                 Save Changes
@@ -154,9 +154,9 @@ export default function ProfilePage() {
         </div>
 
         {/* Profile card */}
-        <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl overflow-hidden">
+        <div className="bg-white border border-stone-200 rounded-2xl overflow-hidden">
           {/* Top banner */}
-          <div className="h-24 bg-gradient-to-r from-violet-900/40 to-indigo-900/40 relative">
+          <div className="h-24 bg-gradient-to-r from-teal-900/40 to-teal-900/40 relative">
             <div className="absolute inset-0 opacity-30"
               style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #7c3aed30 0%, transparent 50%), radial-gradient(circle at 80% 50%, #4f46e530 0%, transparent 50%)' }}
             />
@@ -165,16 +165,16 @@ export default function ProfilePage() {
           <div className="px-6 pb-6">
             {/* Avatar */}
             <div className="relative -mt-12 mb-4 w-fit">
-              <div className="w-20 h-20 rounded-2xl bg-slate-800 border-4 border-slate-900 overflow-hidden flex items-center justify-center">
+              <div className="w-20 h-20 rounded-2xl bg-stone-100 border-4 border-white overflow-hidden flex items-center justify-center">
                 {avatarUrl ? (
                   <img src={avatarUrl} alt="avatar" className="w-full h-full object-cover" />
                 ) : (
-                  <User className="w-10 h-10 text-slate-600" />
+                  <User className="w-10 h-10 text-stone-600" />
                 )}
               </div>
               {editing && (
-                <label className="absolute -bottom-1 -right-1 w-7 h-7 bg-violet-600 hover:bg-violet-500 rounded-full flex items-center justify-center cursor-pointer transition-colors">
-                  <Camera className="w-3.5 h-3.5 text-white" />
+                <label className="absolute -bottom-1 -right-1 w-7 h-7 bg-teal-700 hover:bg-teal-600 rounded-full flex items-center justify-center cursor-pointer transition-colors">
+                  <Camera className="w-3.5 h-3.5 text-stone-900" />
                   <input type="file" accept="image/*" onChange={handleImageChange} className="sr-only" />
                 </label>
               )}
@@ -183,10 +183,10 @@ export default function ProfilePage() {
             {/* User info */}
             <div className="flex items-start justify-between mb-6">
               <div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="text-xl font-bold text-stone-900">
                   {user?.first_name} {user?.last_name}
                 </h2>
-                <p className="text-slate-400 text-sm">{user?.email}</p>
+                <p className="text-stone-500 text-sm">{user?.email}</p>
                 <div className="flex items-center gap-2 mt-2">
                   <Badge label={role} variant={role} />
                   {profile?.is_profile_completed ? (
@@ -208,21 +208,21 @@ export default function ProfilePage() {
             <div className="space-y-6">
               {/* Bio */}
               <div>
-                <h3 className="text-sm font-semibold text-slate-300 mb-3">About</h3>
+                <h3 className="text-sm font-semibold text-stone-600 mb-3">About</h3>
                 {editing ? (
                   <Field label="Bio" name="bio" value={form.bio} onChange={handleChange} textarea placeholder="Tell us about yourself…" />
                 ) : (
-                  <p className="text-sm text-slate-400 leading-relaxed">
-                    {profile?.bio || <span className="italic text-slate-600">No bio added yet.</span>}
+                  <p className="text-sm text-stone-500 leading-relaxed">
+                    {profile?.bio || <span className="italic text-stone-600">No bio added yet.</span>}
                   </p>
                 )}
               </div>
 
-              <div className="border-t border-slate-800" />
+              <div className="border-t border-stone-200" />
 
               {/* Contact */}
               <div>
-                <h3 className="text-sm font-semibold text-slate-300 mb-3">Contact & Location</h3>
+                <h3 className="text-sm font-semibold text-stone-600 mb-3">Contact & Location</h3>
                 {editing ? (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <Field label="Phone Number" name="phone_number" value={form.phone_number} onChange={handleChange} icon={Phone} placeholder="+91 9876543210" />
@@ -239,10 +239,10 @@ export default function ProfilePage() {
                       { icon: MapPin, label: 'Location', value: [profile?.city, profile?.state, profile?.location].filter(Boolean).join(', ') },
                     ].map(({ icon: Icon, label, value }) => (
                       <div key={label} className="flex items-center gap-2.5">
-                        <Icon className="w-4 h-4 text-slate-600 shrink-0" />
+                        <Icon className="w-4 h-4 text-stone-600 shrink-0" />
                         <div>
-                          <p className="text-xs text-slate-600">{label}</p>
-                          <p className="text-sm text-slate-300">{value || '—'}</p>
+                          <p className="text-xs text-stone-600">{label}</p>
+                          <p className="text-sm text-stone-600">{value || '—'}</p>
                         </div>
                       </div>
                     ))}
@@ -250,11 +250,11 @@ export default function ProfilePage() {
                 )}
               </div>
 
-              <div className="border-t border-slate-800" />
+              <div className="border-t border-stone-200" />
 
               {/* Links */}
               <div>
-                <h3 className="text-sm font-semibold text-slate-300 mb-3">Online Presence</h3>
+                <h3 className="text-sm font-semibold text-stone-600 mb-3">Online Presence</h3>
                 {editing ? (
                   <div className="space-y-4">
                     <Field label="GitHub URL" name="github_url" value={form.github_url} onChange={handleChange} type="url" icon={GitBranch} placeholder="https://github.com/username" />
@@ -274,7 +274,7 @@ export default function ProfilePage() {
                           href={value}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 rounded-lg text-sm text-slate-300 hover:text-white transition-all"
+                          className="flex items-center gap-2 px-3 py-1.5 bg-stone-100 hover:bg-stone-300 border border-stone-200 hover:border-stone-400 rounded-lg text-sm text-stone-600 hover:text-stone-900 transition-all"
                         >
                           <Icon className="w-4 h-4" />
                           {label}
@@ -282,7 +282,7 @@ export default function ProfilePage() {
                       ) : null
                     )}
                     {!profile?.github_url && !profile?.linkedin_url && !profile?.portfolio_url && (
-                      <p className="text-sm text-slate-600 italic">No links added yet.</p>
+                      <p className="text-sm text-stone-600 italic">No links added yet.</p>
                     )}
                   </div>
                 )}

@@ -46,8 +46,8 @@ export default function SavedProjects() {
   return (
     <Layout>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white">Saved Projects</h1>
-        <p className="text-slate-400 text-sm mt-1">{saved.length} project(s) saved</p>
+        <h1 className="text-2xl font-bold text-stone-900">Saved Projects</h1>
+        <p className="text-stone-500 text-sm mt-1">{saved.length} project(s) saved</p>
       </div>
 
       {saved.length === 0 ? (
@@ -56,7 +56,7 @@ export default function SavedProjects() {
           title="No saved projects"
           description="Browse projects and save ones you're interested in to revisit later."
           action={
-            <Link to="/freelancer/browse" className="inline-flex items-center gap-2 px-4 py-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-medium rounded-xl transition-colors">
+            <Link to="/freelancer/browse" className="inline-flex items-center gap-2 px-4 py-2 bg-teal-700 hover:bg-teal-600 text-white text-sm font-medium rounded-xl transition-colors">
               Browse Projects
             </Link>
           }
@@ -67,17 +67,17 @@ export default function SavedProjects() {
             const proj = entry.project
             if (!proj) return null
             return (
-              <div key={entry.id} className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5 hover:border-slate-600/50 transition-all group">
+              <div key={entry.id} className="bg-white border border-stone-200 rounded-2xl p-5 hover:border-stone-300 transition-all group">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1.5">
-                      <h3 className="text-base font-semibold text-white group-hover:text-violet-300 transition-colors truncate">
+                      <h3 className="text-base font-semibold text-stone-900 group-hover:text-teal-700 transition-colors truncate">
                         {proj.title}
                       </h3>
                       <Badge label={proj.status_display || proj.status} variant={proj.status} />
                     </div>
-                    <p className="text-sm text-slate-400 line-clamp-2 mb-3">{proj.description}</p>
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
+                    <p className="text-sm text-stone-500 line-clamp-2 mb-3">{proj.description}</p>
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-stone-500">
                       <span>{proj.category?.name}</span>
                       <span>•</span>
                       <span className="flex items-center gap-1">
@@ -95,14 +95,14 @@ export default function SavedProjects() {
                     <button
                       onClick={() => handleRemove(entry)}
                       disabled={removingId === entry.id}
-                      className="p-2 rounded-lg border border-slate-700 text-slate-400 hover:text-red-400 hover:border-red-500/30 hover:bg-red-500/10 transition-colors"
+                      className="p-2 rounded-lg border border-stone-200 text-stone-500 hover:text-red-400 hover:border-red-500/30 hover:bg-red-500/10 transition-colors"
                       title="Remove from saved"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
                     <Link
                       to={`/freelancer/projects/${proj.id}`}
-                      className="flex items-center gap-1.5 px-3 py-2 bg-violet-600/20 hover:bg-violet-600/30 border border-violet-500/30 text-violet-400 text-xs font-medium rounded-lg transition-colors"
+                      className="flex items-center gap-1.5 px-3 py-2 bg-teal-700/20 hover:bg-teal-700/30 border border-teal-600/30 text-teal-700 text-xs font-medium rounded-lg transition-colors"
                     >
                       View & Apply <ArrowRight className="w-3.5 h-3.5" />
                     </Link>

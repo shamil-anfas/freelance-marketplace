@@ -84,66 +84,66 @@ export default function EditProject() {
     <Layout>
       <div className="max-w-2xl mx-auto">
         <div className="flex items-center gap-3 mb-6">
-          <button onClick={() => navigate(-1)} className="p-2 rounded-xl border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+          <button onClick={() => navigate(-1)} className="p-2 rounded-xl border border-stone-200 text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-colors">
             <ArrowLeft className="w-4 h-4" />
           </button>
           <div>
-            <h1 className="text-xl font-bold text-white">Edit Project</h1>
-            <p className="text-slate-400 text-sm">Update your project details</p>
+            <h1 className="text-xl font-bold text-stone-900">Edit Project</h1>
+            <p className="text-stone-500 text-sm">Update your project details</p>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5 space-y-4">
+          <div className="bg-white border border-stone-200 rounded-2xl p-5 space-y-4">
             {[
               { label: 'Title', name: 'title', placeholder: 'Project title', required: true },
             ].map(({ label, name, placeholder, required }) => (
               <div key={name} className="space-y-1.5">
-                <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">{label}</label>
+                <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">{label}</label>
                 <input name={name} value={form[name]} onChange={handleChange} placeholder={placeholder} required={required}
-                  className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition"
+                  className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition"
                 />
               </div>
             ))}
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">Description</label>
+              <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">Description</label>
               <textarea name="description" value={form.description} onChange={handleChange} rows={4} required
-                className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition resize-none"
+                className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition resize-none"
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">Status</label>
+              <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">Status</label>
               <select name="status" value={form.status} onChange={handleChange}
-                className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition">
+                className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition">
                 {STATUS_CHOICES.map((s) => (
-                  <option key={s} value={s} className="bg-slate-900">{s}</option>
+                  <option key={s} value={s} className="bg-white">{s}</option>
                 ))}
               </select>
             </div>
           </div>
 
-          <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5 space-y-4">
-            <h2 className="text-sm font-semibold text-slate-300 flex items-center gap-2">
-              <Tag className="w-4 h-4 text-violet-400" /> Category & Skills
+          <div className="bg-white border border-stone-200 rounded-2xl p-5 space-y-4">
+            <h2 className="text-sm font-semibold text-stone-600 flex items-center gap-2">
+              <Tag className="w-4 h-4 text-teal-700" /> Category & Skills
             </h2>
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">Category</label>
+              <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">Category</label>
               <select name="category" value={form.category} onChange={handleChange}
-                className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition">
-                <option value="" className="bg-slate-900">Select category…</option>
+                className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition">
+                <option value="" className="bg-white">Select category…</option>
                 {categories.map((cat) => (
-                  <option key={cat.id} value={cat.id} className="bg-slate-900">{cat.name}</option>
+                  <option key={cat.id} value={cat.id} className="bg-white">{cat.name}</option>
                 ))}
               </select>
             </div>
             <div className="space-y-2">
-              <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">Skills</label>
+              <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">Skills</label>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => {
                   const selected = form.skills.includes(skill.id)
                   return (
                     <button key={skill.id} type="button" onClick={() => toggleSkill(skill.id)}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selected ? 'bg-violet-600/30 border border-violet-500/50 text-violet-300' : 'bg-slate-800/60 border border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-300'}`}>
+                      className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${selected ? 'bg-teal-700/30 border border-teal-600/50 text-teal-700' : 'bg-stone-200/60 border border-stone-300 text-stone-500 hover:border-stone-500 hover:text-stone-600'}`}>
                       {selected && <span className="mr-1">✓</span>}{skill.name}
                     </button>
                   )
@@ -152,31 +152,31 @@ export default function EditProject() {
             </div>
           </div>
 
-          <div className="bg-slate-900/60 border border-slate-700/50 rounded-2xl p-5 space-y-4">
-            <h2 className="text-sm font-semibold text-slate-300">Budget & Timeline</h2>
+          <div className="bg-white border border-stone-200 rounded-2xl p-5 space-y-4">
+            <h2 className="text-sm font-semibold text-stone-600">Budget & Timeline</h2>
             <div className="grid grid-cols-2 gap-4">
               {[
                 { label: 'Min Budget (₹)', name: 'budget_min' },
                 { label: 'Max Budget (₹)', name: 'budget_max' },
               ].map(({ label, name }) => (
                 <div key={name} className="space-y-1.5">
-                  <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">{label}</label>
+                  <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">{label}</label>
                   <input type="number" name={name} value={form[name]} onChange={handleChange} min={0}
-                    className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition"
+                    className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition"
                   />
                 </div>
               ))}
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-medium text-slate-400 uppercase tracking-wide">Deadline</label>
+              <label className="text-xs font-medium text-stone-500 uppercase tracking-wide">Deadline</label>
               <input type="date" name="deadline" value={form.deadline} onChange={handleChange}
-                className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500/60 focus:border-violet-500 transition"
+                className="w-full bg-stone-100 border border-stone-200 rounded-xl px-4 py-2.5 text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-teal-600/60 focus:border-teal-600 transition"
               />
             </div>
           </div>
 
           <button type="submit" disabled={submitting}
-            className="w-full flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 disabled:opacity-60 text-white font-semibold py-3 rounded-xl transition-colors">
+            className="w-full flex items-center justify-center gap-2 bg-teal-700 hover:bg-teal-600 disabled:opacity-60 text-white font-semibold py-3 rounded-xl transition-colors">
             {submitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Saving…</> : 'Save Changes'}
           </button>
         </form>

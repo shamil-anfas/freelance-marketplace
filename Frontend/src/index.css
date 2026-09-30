@@ -12,8 +12,8 @@ html {
 }
 
 body {
-  background-color: #020617; /* slate-950 */
-  color: #f1f5f9;
+  background-color: #FDFBF7; /* warm cream */
+  color: #1c1917; /* stone-900 */
   margin: 0;
 }
 
@@ -24,21 +24,20 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #f5f5f4;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #d6d3d1;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #a8a29e;
 }
 
-/* Date input dark theme fix */
+/* Date input light theme */
 input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(0.7);
   cursor: pointer;
 }
 
